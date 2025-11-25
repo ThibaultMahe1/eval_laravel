@@ -1,13 +1,57 @@
-Application de gestion d'un championnat sportif <br>
-<br>
-Compte admin par défaut : <br>
-Identifiant : admin@example.com <br>
-Mot de passe : password <br>
+Application Laravel pour la gestion d'un championnat (Équipes, Joueurs, Rencontres).
 
-Compte arbitre par défaut : <br>
-Identifiant : arbitre@example.com <br>
-Mot de passe : password <br>
-<br>
-Seeders et factories mis en place pour créer 4 équipes de 10 joueurs et 8 matchs permettant de tester toutes les fonctionnalités implémentées.
+1. **Cloner le dépôt**
 
-La langue initiale est l'anglais.
+    ```bash
+    git clone <votre-url-de-repository>
+    cd eval_laravel
+    ```
+
+2. **Installer les dépendances PHP**
+
+    ```bash
+    composer install
+    ```
+
+3. **Installer les dépendances JavaScript**
+
+    ```bash
+    npm install
+    npm run build
+    ```
+
+4. **Configuration de l'environnement**
+   Dupliquez le fichier d'exemple `.env.example` pour créer votre fichier de configuration `.env` :
+
+    ```bash
+    cp .env.example .env
+    ```
+
+    Ouvrez le fichier `.env` et configurez vos informations de base de données (`DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`).
+
+5. **Générer la clé d'application**
+
+    ```bash
+    php artisan key:generate
+    ```
+
+6. **Base de données et Seeders**
+   Lancez les migrations et peuplez la base de données avec les données de test :
+
+    ```bash
+    php artisan migrate --seed
+    ```
+
+## Comptes de démonstration
+
+**Compte Admin :**
+
+-   Identifiant : `admin@example.com`
+-   Mot de passe : `password`
+
+**Compte Arbitre :**
+
+-   Identifiant : `arbitre@example.com`
+-   Mot de passe : `password`
+
+## Informations complémentaires

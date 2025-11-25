@@ -40,6 +40,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Equipe whereNbLicencies($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Equipe whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Equipe whereVille($value)
+ * @mixin \Eloquent
  */
 	class Equipe extends \Eloquent {}
 }
@@ -69,6 +70,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Joueur wherePrenom($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Joueur whereSexe($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Joueur whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 	class Joueur extends \Eloquent {}
 }
@@ -101,6 +103,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Rencontre whereScoreDomicile($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Rencontre whereScoreExterieur($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Rencontre whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 	class Rencontre extends \Eloquent {}
 }
@@ -138,7 +141,8 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User wherePassword($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
-	class User extends \Eloquent implements \Illuminate\Contracts\Auth\MustVerifyEmail {}
+	class User extends \Eloquent {}
 }
 
