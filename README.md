@@ -1,11 +1,13 @@
-application de gestion d'un championnat sportif <br>
+Application de gestion d'un championnat sportif <br>
 <br>
-compte admin par default: <br>
-identifiant : admin@example.com <br>
-mdp : password <br>
+Compte admin par défaut : <br>
+Identifiant : admin@example.com <br>
+Mot de passe : password <br>
 
-compte arbitre par default: <br>
-identifiant : arbitre@exemple.com <br>
-mdp : password <br>
+Compte arbitre par défaut : <br>
+Identifiant : arbitre@example.com <br>
+Mot de passe : password <br>
 <br>
-seeder et factorie mis en place pour crée 4 equipe de 10 joueur et 8 match permetant de tester toute les fonctionnalitée implenter
+Seeders et factories mis en place pour créer 4 équipes de 10 joueurs et 8 matchs permettant de tester toutes les fonctionnalités implémentées.
+
+La langue initiale est l'anglais.

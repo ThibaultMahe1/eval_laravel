@@ -4,7 +4,7 @@ use App\Models\Equipe;
 use App\Models\User;
 use Silber\Bouncer\BouncerFacade as Bouncer;
 
-test('index page is displayed', function () {
+test('la page index est affichée', function () {
     $user = User::factory()->create();
 
     $response = $this->actingAs($user)->get(route('equipes.index'));
@@ -12,7 +12,7 @@ test('index page is displayed', function () {
     $response->assertOk();
 });
 
-test('create page is displayed for admin', function () {
+test('la page de création est affichée pour l\'admin', function () {
     $user = User::factory()->create();
     Bouncer::allow($user)->to('gerer-equipes');
 
@@ -21,7 +21,7 @@ test('create page is displayed for admin', function () {
     $response->assertOk();
 });
 
-test('create page is forbidden for non-admin', function () {
+test('la page de création est interdite pour les non-admins', function () {
     $user = User::factory()->create();
 
     $response = $this->actingAs($user)->get(route('equipes.create'));
@@ -29,7 +29,7 @@ test('create page is forbidden for non-admin', function () {
     $response->assertForbidden();
 });
 
-test('admin can create equipe', function () {
+test('l\'admin peut créer une équipe', function () {
     $user = User::factory()->create();
     Bouncer::allow($user)->to('gerer-equipes');
 
@@ -45,7 +45,7 @@ test('admin can create equipe', function () {
     $this->assertDatabaseHas('equipes', $equipeData);
 });
 
-test('non-admin cannot create equipe', function () {
+test('le non-admin ne peut pas créer d\'équipe', function () {
     $user = User::factory()->create();
 
     $equipeData = [
@@ -59,7 +59,7 @@ test('non-admin cannot create equipe', function () {
     $response->assertForbidden();
 });
 
-test('edit page is displayed for admin', function () {
+test('la page d\'édition est affichée pour l\'admin', function () {
     $user = User::factory()->create();
     Bouncer::allow($user)->to('gerer-equipes');
     $equipe = Equipe::factory()->create();
@@ -69,7 +69,7 @@ test('edit page is displayed for admin', function () {
     $response->assertOk();
 });
 
-test('admin can update equipe', function () {
+test('l\'admin peut mettre à jour une équipe', function () {
     $user = User::factory()->create();
     Bouncer::allow($user)->to('gerer-equipes');
     $equipe = Equipe::factory()->create();
@@ -86,7 +86,7 @@ test('admin can update equipe', function () {
     $this->assertDatabaseHas('equipes', $updatedData);
 });
 
-test('admin can delete equipe', function () {
+test('l\'admin peut supprimer une équipe', function () {
     $user = User::factory()->create();
     Bouncer::allow($user)->to('gerer-equipes');
     $equipe = Equipe::factory()->create();
@@ -97,7 +97,7 @@ test('admin can delete equipe', function () {
     $this->assertDatabaseMissing('equipes', ['id' => $equipe->id]);
 });
 
-test('equipe stats are calculated correctly', function () {
+test('les statistiques de l\'équipe sont calculées correctement', function () {
     $user = User::factory()->create();
     $equipe = Equipe::factory()->create(['categorie' => 'Senior']);
     $adversaire = Equipe::factory()->create(['categorie' => 'Senior']);

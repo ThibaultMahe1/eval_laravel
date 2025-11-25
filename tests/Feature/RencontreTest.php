@@ -5,7 +5,7 @@ use App\Models\Rencontre;
 use App\Models\User;
 use Silber\Bouncer\BouncerFacade as Bouncer;
 
-test('index page is displayed', function () {
+test('la page index est affichée', function () {
     $user = User::factory()->create();
 
     $response = $this->actingAs($user)->get(route('rencontres.index'));
@@ -13,7 +13,7 @@ test('index page is displayed', function () {
     $response->assertOk();
 });
 
-test('create page is displayed for admin', function () {
+test('la page de création est affichée pour l\'admin', function () {
     $user = User::factory()->create();
     Bouncer::allow($user)->to('gerer-rencontres');
 
@@ -22,7 +22,7 @@ test('create page is displayed for admin', function () {
     $response->assertOk();
 });
 
-test('admin can create rencontre', function () {
+test('l\'admin peut créer une rencontre', function () {
     $user = User::factory()->create();
     Bouncer::allow($user)->to('gerer-rencontres');
 
@@ -45,7 +45,7 @@ test('admin can create rencontre', function () {
     ]);
 });
 
-test('cannot create rencontre with different categories', function () {
+test('impossible de créer une rencontre avec des catégories différentes', function () {
     $user = User::factory()->create();
     Bouncer::allow($user)->to('gerer-rencontres');
 
@@ -64,7 +64,7 @@ test('cannot create rencontre with different categories', function () {
     $response->assertSessionHasErrors('equipe_exterieur_id');
 });
 
-test('edit page is displayed for admin', function () {
+test('la page d\'édition est affichée pour l\'admin', function () {
     $user = User::factory()->create();
     Bouncer::allow($user)->to('gerer-rencontres');
     $rencontre = Rencontre::factory()->create();
@@ -74,7 +74,7 @@ test('edit page is displayed for admin', function () {
     $response->assertOk();
 });
 
-test('edit page is displayed for arbitre', function () {
+test('la page d\'édition est affichée pour l\'arbitre', function () {
     $user = User::factory()->create();
     Bouncer::allow($user)->to('saisir-resultats');
     $rencontre = Rencontre::factory()->create();
@@ -84,7 +84,7 @@ test('edit page is displayed for arbitre', function () {
     $response->assertOk();
 });
 
-test('admin can update rencontre details but not scores', function () {
+test('l\'admin peut mettre à jour les détails de la rencontre mais pas les scores', function () {
     $user = User::factory()->create();
     Bouncer::allow($user)->to('gerer-rencontres');
 
@@ -114,7 +114,7 @@ test('admin can update rencontre details but not scores', function () {
     ]);
 });
 
-test('arbitre can update scores but not details', function () {
+test('l\'arbitre peut mettre à jour les scores mais pas les détails', function () {
     $user = User::factory()->create();
     Bouncer::allow($user)->to('saisir-resultats');
 
@@ -137,7 +137,7 @@ test('arbitre can update scores but not details', function () {
     ]);
 });
 
-test('admin can delete rencontre', function () {
+test('l\'admin peut supprimer une rencontre', function () {
     $user = User::factory()->create();
     Bouncer::allow($user)->to('gerer-rencontres');
     $rencontre = Rencontre::factory()->create();

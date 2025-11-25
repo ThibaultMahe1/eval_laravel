@@ -5,7 +5,7 @@ use App\Models\Joueur;
 use App\Models\User;
 use Silber\Bouncer\BouncerFacade as Bouncer;
 
-test('index page is displayed', function () {
+test('la page index est affichée', function () {
     $user = User::factory()->create();
 
     $response = $this->actingAs($user)->get(route('joueurs.index'));
@@ -13,7 +13,7 @@ test('index page is displayed', function () {
     $response->assertOk();
 });
 
-test('show page is displayed for admin', function () {
+test('la page de détails est affichée pour l\'admin', function () {
     $user = User::factory()->create();
     Bouncer::allow($user)->to('gerer-joueurs');
     $joueur = Joueur::factory()->create();
@@ -23,7 +23,7 @@ test('show page is displayed for admin', function () {
     $response->assertOk();
 });
 
-test('show page is displayed for arbitre', function () {
+test('la page de détails est affichée pour l\'arbitre', function () {
     $user = User::factory()->create();
     Bouncer::allow($user)->to('saisir-resultats');
     $joueur = Joueur::factory()->create();
@@ -33,7 +33,7 @@ test('show page is displayed for arbitre', function () {
     $response->assertOk();
 });
 
-test('show page is forbidden for unauthorized user', function () {
+test('la page de détails est interdite pour un utilisateur non autorisé', function () {
     $user = User::factory()->create();
     $joueur = Joueur::factory()->create();
 
@@ -42,7 +42,7 @@ test('show page is forbidden for unauthorized user', function () {
     $response->assertForbidden();
 });
 
-test('create page is displayed for admin', function () {
+test('la page de création est affichée pour l\'admin', function () {
     $user = User::factory()->create();
     Bouncer::allow($user)->to('gerer-joueurs');
 
@@ -51,7 +51,7 @@ test('create page is displayed for admin', function () {
     $response->assertOk();
 });
 
-test('admin can create joueur', function () {
+test('l\'admin peut créer un joueur', function () {
     $user = User::factory()->create();
     Bouncer::allow($user)->to('gerer-joueurs');
     $equipe = Equipe::factory()->create();
@@ -74,7 +74,7 @@ test('admin can create joueur', function () {
     $this->assertEquals(1, $equipe->fresh()->nb_licencies);
 });
 
-test('admin can update joueur', function () {
+test('l\'admin peut mettre à jour un joueur', function () {
     $user = User::factory()->create();
     Bouncer::allow($user)->to('gerer-joueurs');
     $equipe = Equipe::factory()->create();
@@ -102,7 +102,7 @@ test('admin can update joueur', function () {
     $this->assertEquals(1, $newEquipe->fresh()->nb_licencies); // Incremented
 });
 
-test('admin can delete joueur', function () {
+test('l\'admin peut supprimer un joueur', function () {
     $user = User::factory()->create();
     Bouncer::allow($user)->to('gerer-joueurs');
     $equipe = Equipe::factory()->create();
