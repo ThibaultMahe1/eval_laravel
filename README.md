@@ -54,4 +54,3 @@ Application Laravel pour la gestion d'un championnat (Équipes, Joueurs, Rencont
 -   Identifiant : `arbitre@example.com`
 -   Mot de passe : `password`
 
-## Informations complémentaires
